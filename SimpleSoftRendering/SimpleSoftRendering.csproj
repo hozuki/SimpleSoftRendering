@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6108E37F-FE7F-4045-8CA1-03B2D4464DA4}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSR</RootNamespace>
+    <AssemblyName>SimpleSoftRending</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharpDX, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1">
+      <HintPath>..\packages\SharpDX.4.0.1\lib\net45\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1">
+      <HintPath>..\packages\SharpDX.Mathematics.4.0.1\lib\net45\SharpDX.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\Vector3Extensions.cs" />
+    <Compile Include="Extensions\Vector4Extensions.cs" />
+    <Compile Include="Implementations\SimpleColor\RenderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Implementations\SimpleTexture\RenderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pipeline\Blending.cs" />
+    <Compile Include="Pipeline\ComparingFunction.cs" />
+    <Compile Include="Pipeline\Culling.cs" />
+    <Compile Include="Pipeline\InputAssembler.cs" />
+    <Compile Include="Pipeline\PrimitiveTopology.cs" />
+    <Compile Include="Pipeline\TextureAddressing.cs" />
+    <Compile Include="Pipeline\TextureFiltering.cs" />
+    <Compile Include="RenderWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Implementations\GeometryProcessorBase.cs" />
+    <Compile Include="Implementations\GeometryProcessorBase.CullOrientation.cs" />
+    <Compile Include="Implementations\GeometryProcessorBase.ClipXY.cs" />
+    <Compile Include="Implementations\GeometryProcessorBase.ClipZ.cs" />
+    <Compile Include="Implementations\PixelShaderBase.cs" />
+    <Compile Include="Implementations\RasterizerBase.cs" />
+    <Compile Include="Implementations\RasterizerBase.Utilities.cs" />
+    <Compile Include="Implementations\SimpleColor\GeometryProcessor.cs" />
+    <Compile Include="Implementations\SimpleColor\MeshBuilder.cs" />
+    <Compile Include="Implementations\SimpleColor\PixelShaderInput.cs" />
+    <Compile Include="Implementations\SimpleColor\PixelShader.cs" />
+    <Compile Include="Implementations\SimpleColor\Rasterizer.cs" />
+    <Compile Include="Implementations\SimpleColor\VertexShaderInput.cs" />
+    <Compile Include="Implementations\SimpleColor\VertexShader.cs" />
+    <Compile Include="Implementations\SimpleTexture\GeometryProcessor.cs" />
+    <Compile Include="Implementations\SimpleTexture\MeshBuilder.cs" />
+    <Compile Include="Implementations\SimpleTexture\PixelShader.cs" />
+    <Compile Include="Implementations\SimpleTexture\PixelShaderInput.cs" />
+    <Compile Include="Implementations\SimpleTexture\Rasterizer.cs" />
+    <Compile Include="Implementations\SimpleTexture\VertexShader.cs" />
+    <Compile Include="Implementations\SimpleTexture\VertexShaderInput.cs" />
+    <Compile Include="Implementations\VertexShaderBase.cs" />
+    <Compile Include="Pipeline\IGeometryProcessor.cs" />
+    <Compile Include="TransformedPosition.cs" />
+    <Compile Include="Pipeline\Internal\TextureSampler.cs" />
+    <Compile Include="Pipeline\IPixelShader.cs" />
+    <Compile Include="Pipeline\IPixelShaderInput.cs" />
+    <Compile Include="Pipeline\IRasterizer.cs" />
+    <Compile Include="Pipeline\IVertexShader.cs" />
+    <Compile Include="Pipeline\IVertexShaderInput.cs" />
+    <Compile Include="Pipeline\MemoryResources.cs" />
+    <Compile Include="Pipeline\OutputMerger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RenderLogic.cs" />
+    <Compile Include="Triangular.cs" />
+    <Compile Include="Triangle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\aperture_science.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

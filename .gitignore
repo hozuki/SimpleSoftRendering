@@ -1,0 +1,7 @@
+.idea
+.vs
+_ReSharper.*
+packages
+
+[Bb]in
+[Oo]bj
